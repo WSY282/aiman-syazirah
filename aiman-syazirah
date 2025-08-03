@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<audio controls>
+<source src="Westlife.ogg" type="audio/ogg">
+  <source src="Westlife.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jemputan Kahwin - Aiman & Syazirah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-dancing { font-family: 'Dancing Script', cursive; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+        
+        .floral-bg {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 183, 197, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 226, 0.1) 0%, transparent 50%);
+        }
+        
+        .card-shadow {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .floating-flower {
+            animation: floatingFlower 4s ease-in-out infinite;
+        }
+        
+        @keyframes floatingFlower {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .btn-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .floral-border {
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                       linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef) border-box;
+        }
+        
+        .message-card {
+            background: linear-gradient(135deg, #fff5f5 0%, #fef7ff 100%);
+            border-left: 4px solid #f472b6;
+        }
+        
+        .petal {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #fbbf24;
+            border-radius: 50% 0;
+            animation: fall 8s linear infinite;
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="floral-bg min-h-screen font-inter relative overflow-x-hidden">
+    <!-- Falling Petals -->
+    <div class="petal" style="left: 10%; animation-delay: 0s; background: #fbbf24;"></div>
+    <div class="petal" style="left: 20%; animation-delay: 2s; background: #f472b6;"></div>
+    <div class="petal" style="left: 30%; animation-delay: 4s; background: #a78bfa;"></div>
+    <div class="petal" style="left: 40%; animation-delay: 1s; background: #fb7185;"></div>
+    <div class="petal" style="left: 50%; animation-delay: 3s; background: #fbbf24;"></div>
+    <div class="petal" style="left: 60%; animation-delay: 5s; background: #f472b6;"></div>
+    <div class="petal" style="left: 70%; animation-delay: 2.5s; background: #a78bfa;"></div>
+    <div class="petal" style="left: 80%; animation-delay: 4.5s; background: #fb7185;"></div>
+    <div class="petal" style="left: 90%; animation-delay: 1.5s; background: #fbbf24;"></div>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- Main Wedding Card -->
+        <div class="max-w-2xl mx-auto bg-white rounded-3xl card-shadow overflow-hidden fade-in floral-border">
+            <!-- Header with Floral Design -->
+            <div class="bg-gradient-to-r from-pink-400 via-purple-400 to-pink-500 p-8 text-center relative">
+                <div class="absolute top-4 left-4 text-4xl floating-flower">🌸</div>
+                <div class="absolute top-4 right-4 text-4xl floating-flower" style="animation-delay: 1s;">🌺</div>
+                <div class="absolute bottom-4 left-8 text-3xl floating-flower" style="animation-delay: 2s;">🌷</div>
+                <div class="absolute bottom-4 right-8 text-3xl floating-flower" style="animation-delay: 0.5s;">🌹</div>
+                
+                <h1 class="font-playfair text-3xl font-bold text-white mb-2">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</h1>
+                <h2 class="font-dancing text-4xl font-bold text-white mb-2">Majlis Kesyukuran</h2>
+                <div class="flex items-center justify-center space-x-2 mt-4">
+                    <span class="text-2xl">🌸</span>
+                    <div class="text-white text-lg font-medium">#AiSyaTieTheKnot</div>
+                    <span class="text-2xl">🌸</span>
+                </div>
+            </div>
+
+            <!-- Invitation Content -->
+            <div class="p-8">
+                <!-- Parents Names -->
+                <div class="text-center mb-8">
+                    <p class="text-gray-700 mb-4 leading-relaxed">Assalamualaikum dan Selamat Sejahtera.</p>
+                    <div class="font-playfair text-xl font-semibold text-gray-800 mb-2">
+                        Mohd Nasir Bin Salleh<br>
+                        &<br>
+                        Sharifah Binti Mamat @<br>
+                        Zarah Binti Awang (Kak Som)
+                    </div>
+                    <p class="text-gray-700 mt-4 leading-relaxed">
+                        Dengan penuh rasa kesyukuran, kami ingin menjemput<br>
+                        Dato/Datin/Tuan/Puan/Encik/Cik<br>
+                        ke majlis perkahwinan anakanda kami
+                    </p>
+                </div>
+
+                <!-- Couple Names with Floral Design -->
+                <div class="text-center mb-8 p-6 bg-gradient-to-r from-pink-50 via-purple-50 to-pink-50 rounded-2xl border-2 border-pink-200">
+                    <div class="flex justify-center mb-4">
+                        <span class="text-3xl">🌹</span>
+                        <span class="text-3xl mx-2">🌸</span>
+                        <span class="text-3xl">🌺</span>
+                    </div>
+                    <div class="font-dancing text-4xl font-bold text-gray-800 mb-4">
+                        Muhammad Nuraiman<br>
+                        <span class="text-2xl font-playfair">Bin</span><br>
+                        Mohd Nasir
+                    </div>
+                    <div class="text-4xl my-6">💕</div>
+                    <div class="font-dancing text-4xl font-bold text-gray-800 mb-4">
+                        Wan Nur Syazirah<br>
+                        <span class="text-2xl font-playfair">Binti</span><br>
+                        W Yunus
+                    </div>
+                    <div class="flex justify-center mt-4">
+                        <span class="text-3xl">🌷</span>
+                        <span class="text-3xl mx-2">🌼</span>
+                        <span class="text-3xl">🌻</span>
+                    </div>
+                </div>
+
+                <!-- Event Details -->
+                <div class="bg-gradient-to-r from-rose-50 to-pink-50 rounded-2xl p-6 mb-8 border border-pink-200">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-4xl mb-2">🌸</div>
+                            <h3 class="font-semibold text-gray-800 mb-2">Tarikh & Hari</h3>
+                            <p class="text-gray-700">19/10/2025 (Ahad)</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl mb-2">🌺</div>
+                            <h3 class="font-semibold text-gray-800 mb-2">Masa</h3>
+                            <p class="text-gray-700">11.00 am - 4.00 pm</p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-6">
+                        <div class="text-4xl mb-2">🌹</div>
+                        <h3 class="font-semibold text-gray-800 mb-2">Tempat</h3>
+                        <p class="text-gray-700 font-medium">Dewan Mareesa Pekan Melor</p>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                    <!-- Contact Button -->
+                    <button onclick="showContactModal()" class="btn-hover bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center space-x-2">
+                        <span class="text-xl">📞</span>
+                        <span>Hubungi</span>
+                    </button>
+
+                    <!-- Calendar Button -->
+                    <button onclick="addToCalendar()" class="btn-hover bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center space-x-2">
+                        <span class="text-xl">📅</span>
+                        <span>Kalender</span>
+                    </button>
+
+                    <!-- RSVP Button -->
+                    <button onclick="showRSVPModal()" class="btn-hover bg-gradient-to-r from-purple-400 to-purple-500 hover:from-purple-500 hover:to-purple-600 text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center space-x-2">
+                        <span class="text-xl">✉️</span>
+                        <span>RSVP</span>
+                    </button>
+
+                    <!-- Location Button -->
+                    <button onclick="showLocationModal()" class="btn-hover bg-gradient-to-r from-red-400 to-red-500 hover:from-red-500 hover:to-red-600 text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center space-x-2">
+                        <span class="text-xl">📍</span>
+                        <span>Lokasi</span>
+                    </button>
+                </div>
+
+                <!-- Guest Messages Button -->
+                <div class="mb-8">
+                    <button onclick="showMessagesModal()" class="w-full btn-hover bg-gradient-to-r from-pink-400 to-rose-500 hover:from-pink-500 hover:to-rose-600 text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center space-x-2">
+                        <span class="text-xl">💌</span>
+                        <span>Ucapan untuk Pengantin</span>
+                    </button>
+                </div>
+
+                <!-- Prayer -->
+                <div class="bg-gradient-to-r from-purple-50 via-pink-50 to-purple-50 rounded-2xl p-6 text-center border-2 border-purple-200">
+                    <div class="flex justify-center mb-4">
+                        <span class="text-2xl">🤲</span>
+                        <span class="text-2xl mx-2">🌸</span>
+                        <span class="text-2xl">🤲</span>
+                    </div>
+                    <h3 class="font-dancing text-2xl font-bold text-gray-800 mb-4">Doa untuk Pengantin</h3>
+                    <p class="text-gray-700 leading-relaxed text-sm">
+                        Ya Allah, berkatilah mereka berdua dan berikanlah barakah kepada mereka serta satukanlah mereka dalam kebaikan. Tanamkanlah di antara mereka rasa kasih sayang, rahmat, dan ketenangan, serta jauhkanlah mereka dari segala keburukan. Satukanlah hati mereka seperti mana Engkau menyatukan hati Adam & Hawa dan seperti Engkau satukan hati Muhammad S.A.W & Siti Khadijah. Aamiin.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="bg-white rounded-2xl p-8 max-w-md mx-4 w-full floral-border">
+            <div class="text-center mb-6">
+                <div class="text-4xl mb-2">🌸</div>
+                <h3 class="font-dancing text-3xl font-bold text-gray-800 mb-2">Hubungi Kami</h3>
+                <p class="text-gray-600">Sila hubungi mana-mana nombor di bawah</p>
+            </div>
+            <div class="space-y-4">
+                <a href="tel:0139360181" class="block bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white font-semibold py-3 px-4 rounded-xl text-center btn-hover">
+                    📞 Cik Dah (013-936-0181)
+                </a>
+                <a href="tel:0127162540" class="block bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white font-semibold py-3 px-4 rounded-xl text-center btn-hover">
+                    📞 Wan Ahmad (012-716-2540)
+                </a>
+                <a href="tel:0146672707" class="block bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white font-semibold py-3 px-4 rounded-xl text-center btn-hover">
+                    📞 Aiman (014-667-2707)
+                </a>
+            </div>
+            <button onclick="closeModal('contactModal')" class="w-full mt-6 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-3 px-4 rounded-xl btn-hover">
+                Tutup
+            </button>
+        </div>
+    </div>
+
+    <!-- RSVP Modal -->
+    <div id="rsvpModal" class="modal">
+        <div class="bg-white rounded-2xl p-8 max-w-md mx-4 w-full floral-border">
+            <div class="text-center mb-6">
+                <div class="text-4xl mb-2">🌺</div>
+                <h3 class="font-dancing text-3xl font-bold text-gray-800 mb-2">RSVP</h3>
+                <p class="text-gray-600">Sila maklumkan kehadiran anda</p>
+            </div>
+            <form id="rsvpForm" class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Nama:</label>
+                    <input type="text" class="w-full p-3 border-2 border-pink-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400" required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Bilangan Kehadiran:</label>
+                    <select class="w-full p-3 border-2 border-pink-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400" required>
+                        <option value="">Pilih bilangan</option>
+                        <option value="1">1 orang</option>
+                        <option value="2">2 orang</option>
+                        <option value="3">3 orang</option>
+                        <option value="4">4 orang</option>
+                        <option value="5+">5+ orang</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Status Kehadiran:</label>
+                    <select class="w-full p-3 border-2 border-pink-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400" required>
+                        <option value="">Pilih status</option>
+                        <option value="hadir">✅ Akan Hadir</option>
+                        <option value="tidak_hadir">❌ Tidak Dapat Hadir</option>
+                        <option value="mungkin">❓ Mungkin Hadir</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-purple-400 to-purple-500 hover:from-purple-500 hover:to-purple-600 text-white font-semibold py-3 px-4 rounded-xl btn-hover">
+                    Hantar RSVP
+                </button>
+            </form>
+            <button onclick="closeModal('rsvpModal')" class="w-full mt-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-3 px-4 rounded-xl btn-hover">
+                Tutup
+            </button>
+        </div>
+    </div>
+
+    <!-- Location Modal -->
+    <div id="locationModal" class="modal">
+        <div class="bg-white rounded-2xl p-8 max-w-md mx-4 w-full floral-border">
+            <div class="text-center mb-6">
+                <div class="text-4xl mb-2">🌹</div>
+                <h3 class="font-dancing text-3xl font-bold text-gray-800 mb-2">Lokasi Majlis</h3>
+                <p class="text-gray-600 font-semibold">Dewan Mareesa Pekan Melor</p>
+            </div>
+            <div class="space-y-4">
+                <a href="https://maps.app.goo.gl/GRvCXN8arDrzxWmv5?g_st=ac" target="_blank" class="block bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-semibold py-3 px-4 rounded-xl text-center btn-hover">
+                    🗺️ Buka di Google Maps
+                </a>
+                <a href="https://waze.com/ul?ll=5.97984,102.23423&navigate=yes" target="_blank" class="block bg-gradient-to-r from-cyan-400 to-cyan-500 hover:from-cyan-500 hover:to-cyan-600 text-white font-semibold py-3 px-4 rounded-xl text-center btn-hover">
+                    🚗 Buka di Waze
+                </a>
+            </div>
+            <button onclick="closeModal('locationModal')" class="w-full mt-6 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-3 px-4 rounded-xl btn-hover">
+                Tutup
+            </button>
+        </div>
+    </div>
+
+    <!-- Guest Messages Modal -->
+    <div id="messagesModal" class="modal">
+        <div class="bg-white rounded-2xl p-8 max-w-lg mx-4 w-full max-h-[90vh] overflow-y-auto floral-border">
+            <div class="text-center mb-6">
+                <div class="text-4xl mb-2">💌</div>
+                <h3 class="font-dancing text-3xl font-bold text-gray-800 mb-2">Ucapan untuk Pengantin</h3>
+                <p class="text-gray-600">Tinggalkan ucapan terbaik untuk Aiman & Syazirah</p>
+            </div>
+            
+            <!-- Message Form -->
+            <form id="messageForm" class="mb-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl border-2 border-pink-200">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Nama:</label>
+                        <input type="text" id="guestName" class="w-full p-3 border-2 border-pink-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Ucapan:</label>
+                        <textarea id="guestMessage" rows="4" class="w-full p-3 border-2 border-pink-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400" placeholder="Tulis ucapan terbaik anda untuk pengantin..." required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-pink-400 to-rose-500 hover:from-pink-500 hover:to-rose-600 text-white font-semibold py-3 px-4 rounded-xl btn-hover">
+                        🌸 Hantar Ucapan
+                    </button>
+                </div>
+            </form>
+
+            <!-- Messages Display -->
+            <div id="messagesContainer" class="space-y-4 mb-6">
+                <!-- Sample messages -->
+                <div class="message-card p-4 rounded-xl">
+                    <div class="flex items-start space-x-3">
+                        <div class="text-2xl">🌸</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-gray-800">Siti Aminah</div>
+                            <p class="text-gray-700 mt-1">Tahniah kepada kedua-dua pengantin! Semoga perkahwinan kalian diberkati Allah dan kekal bahagia hingga ke anak cucu. Aamiin! 💕</p>
+                            <div class="text-xs text-gray-500 mt-2">2 jam yang lalu</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="message-card p-4 rounded-xl">
+                    <div class="flex items-start space-x-3">
+                        <div class="text-2xl">🌺</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-gray-800">Ahmad Fauzi</div>
+                            <p class="text-gray-700 mt-1">Selamat pengantin baru! Semoga Allah kurniakan kalian zuriat yang soleh dan solehah. Barakallahu lakuma! 🤲</p>
+                            <div class="text-xs text-gray-500 mt-2">5 jam yang lalu</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="closeModal('messagesModal')" class="w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-3 px-4 rounded-xl btn-hover">
+                Tutup
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function showContactModal() {
+            document.getElementById('contactModal').classList.add('show');
+        }
+
+        function showRSVPModal() {
+            document.getElementById('rsvpModal').classList.add('show');
+        }
+
+        function showLocationModal() {
+            document.getElementById('locationModal').classList.add('show');
+        }
+
+        function showMessagesModal() {
+            document.getElementById('messagesModal').classList.add('show');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('show');
+        }
+
+        function addToCalendar() {
+            const eventDetails = {
+                title: 'Majlis Perkahwinan Aiman & Syazirah',
+                start: '20251019T030000Z',
+                end: '20251019T080000Z',
+                description: 'Majlis Kesyukuran - Muhammad Nuraiman & Wan Nur Syazirah',
+                location: 'Dewan Mareesa Pekan Melor'
+            };
+
+            const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventDetails.title)}&dates=${eventDetails.start}/${eventDetails.end}&details=${encodeURIComponent(eventDetails.description)}&location=${encodeURIComponent(eventDetails.location)}`;
+            
+            window.open(googleCalendarUrl, '_blank');
+        }
+
+        // RSVP Form Handler
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! RSVP anda telah diterima. Kami tidak sabar untuk bertemu dengan anda di majlis kami! 💕');
+            closeModal('rsvpModal');
+            this.reset();
+        });
+
+        // Guest Message Form Handler
+        document.getElementById('messageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('guestName').value;
+            const message = document.getElementById('guestMessage').value;
+            
+            if (name && message) {
+                addGuestMessage(name, message);
+                this.reset();
+                alert('Terima kasih atas ucapan yang indah! Ucapan anda telah dihantar kepada pengantin. 🌸');
+            }
+        });
+
+        function addGuestMessage(name, message) {
+            const messagesContainer = document.getElementById('messagesContainer');
+            const flowers = ['🌸', '🌺', '🌹', '🌷', '🌼', '🌻'];
+            const randomFlower = flowers[Math.floor(Math.random() * flowers.length)];
+            
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message-card p-4 rounded-xl fade-in';
+            messageElement.innerHTML = `
+                <div class="flex items-start space-x-3">
+                    <div class="text-2xl">${randomFlower}</div>
+                    <div class="flex-1">
+                        <div class="font-semibold text-gray-800">${name}</div>
+                        <p class="text-gray-700 mt-1">${message}</p>
+                        <div class="text-xs text-gray-500 mt-2">Baru sahaja</div>
+                    </div>
+                </div>
+            `;
+            
+            messagesContainer.insertBefore(messageElement, messagesContainer.firstChild);
+        }
+
+        // Close modals when clicking outside
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('show');
+                }
+            });
+        });
+
+        // Close modals with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.show').forEach(modal => {
+                    modal.classList.remove('show');
+                });
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9694c4e64793c237',t:'MTc1NDIxMzE0MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
